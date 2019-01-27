@@ -9,15 +9,9 @@ app = Flask(__name__)
 
 
 DISCORD_BOT_TOKEN = os.getenv('DISCORD_BOT_TOKEN')
-MONGODB_URI = os.getenv('MONGODB_URI')
 
 client = commands.Bot(command_prefix='.')
-bot = ChatBot(
-    'ParçaBot',
-    storage_adapter='chatterbot.storage.MongoDatabaseAdapter',
-    database='mongodb_name',
-    database_uri=MONGODB_URI
-)
+bot = ChatBot('ParçaBot')
 
 messages = [
     'oi', 'olá', 'tudo bem?', 'tudo bem!', 'como vai?', 'como foi seu dia?', 'qual seu nome?', 'vamos jogar?',
