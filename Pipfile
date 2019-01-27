@@ -13,6 +13,11 @@ chatterbot = "*"
 "discord.py" = {git = "https://github.com/Rapptz/discord.py.git"}
 gunicorn = "*"
 pytz = "*"
+flask-sqlalchemy = "*"
+alembic = "*"
+flask-migrate = "*"
+flask-script = "*"
+psycopg2 = "*"
 
 [requires]
 python_version = "3.6"
