@@ -4,8 +4,11 @@ from chatterbot import ChatBot
 from chatterbot.trainers import ListTrainer
 from discord.ext import commands
 from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
+db = SQLAlchemy(app)
 
 
 DISCORD_BOT_TOKEN = os.getenv('DISCORD_BOT_TOKEN')
