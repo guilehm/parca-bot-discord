@@ -20,7 +20,7 @@ messages = [
     'aff', 'menos, por favor', 'cala a boca', 'fica quieto', 'burro',
 ]
 
-bot = ChatBot('ParçaBot')
+bot = ChatBot('ParçaBot', storage_adapter="chatterbot.storage.SQLStorageAdapter")
 trainer = ListTrainer(bot)
 trainer.train(messages)
 
