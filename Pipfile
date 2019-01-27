@@ -9,6 +9,9 @@ verify_ssl = true
 flask = "*"
 sqlalchemy = "*"
 chatterbot = "*"
+"discord.py" = {git = "https://github.com/Rapptz/discord.py.git"}
+gunicorn = "*"
+pytz = "*"
 
 [requires]
 python_version = "3.6"
