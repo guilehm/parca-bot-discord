@@ -3,18 +3,15 @@ import os
 from chatterbot import ChatBot
 from chatterbot.trainers import ListTrainer
 from discord.ext import commands
-from flask import Flask
+from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
 
-app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
-db = SQLAlchemy(app)
-
-
+DATABASE_URL = os.environ.get('DATABASE_URL', 'sqlite:////tmp/flask_app.db')
 DISCORD_BOT_TOKEN = os.getenv('DISCORD_BOT_TOKEN')
 
-client = commands.Bot(command_prefix='.')
-bot = ChatBot('ParçaBot')
+app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE_URL
+db = SQLAlchemy(app)
 
 messages = [
     'oi', 'olá', 'tudo bem?', 'tudo bem!', 'como vai?', 'como foi seu dia?', 'qual seu nome?', 'vamos jogar?',
@@ -23,9 +20,12 @@ messages = [
     'aff', 'menos, por favor', 'cala a boca', 'fica quieto', 'burro',
 ]
 
-
+bot = ChatBot('ParçaBot')
 trainer = ListTrainer(bot)
 trainer.train(messages)
+
+
+client = commands.Bot(command_prefix='.')
 
 
 @client.event
@@ -53,4 +53,13 @@ async def on_message(message):
         await client.send_message(channel, output)
 
 
-client.run(DISCORD_BOT_TOKEN)
+@app.route('/', methods=['GET'])
+def index():
+    return render_template('index.html')
+
+
+if __name__ == '__main__':
+    db.create_all()
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port, debug=True)
+    client.run(DISCORD_BOT_TOKEN)
