@@ -4,11 +4,15 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
+isort = "*"
 
 [packages]
 flask = "*"
 sqlalchemy = "*"
 chatterbot = "*"
+"discord.py" = {git = "https://github.com/Rapptz/discord.py.git"}
+gunicorn = "*"
+pytz = "*"
 
 [requires]
 python_version = "3.6"
