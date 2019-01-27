@@ -1,1 +1,1 @@
-web: gunicorn parcaBot.wsgi --log-file -
+web: python -m bot.discord
