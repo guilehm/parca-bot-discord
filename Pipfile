@@ -1,23 +1,19 @@
 [[source]]
-name = "pypi"
-url = "https://pypi.org/simple"
+url = "https://pypi.python.org/simple"
 verify_ssl = true
+name = "pypi"
 
 [dev-packages]
 isort = "*"
 
 [packages]
 flask = "*"
-sqlalchemy = "*"
-chatterbot = "*"
-"discord.py" = {git = "https://github.com/Rapptz/discord.py.git"}
-gunicorn = "*"
-pytz = "*"
 flask-sqlalchemy = "*"
-alembic = "*"
-flask-migrate = "*"
-flask-script = "*"
-psycopg2 = "*"
+"psycopg2" = "*"
+gunicorn = "*"
+"discord.py" = {git = "https://github.com/Rapptz/discord.py.git"}
+chatterbot = "*"
+pytz = "*"
 
 [requires]
 python_version = "3.6"
