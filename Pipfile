@@ -7,8 +7,6 @@ name = "pypi"
 isort = "*"
 
 [packages]
-flask = "*"
-flask-sqlalchemy = "*"
 "psycopg2" = "*"
 gunicorn = "*"
 "discord.py" = {git = "https://github.com/Rapptz/discord.py.git"}
@@ -16,6 +14,7 @@ chatterbot = "*"
 pytz = "*"
 django = "*"
 dj-database-url = "*"
+requests = "*"
 
 [requires]
 python_version = "3.6"
