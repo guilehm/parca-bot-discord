@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "1428b8a932e10f4c1c6b79c336eba67394f5ad6fbe85845ddfbcd9463e9e294b"
+            "sha256": "38bb8596c64199255cd28a77cd7a4f97f8cee672745d60d036412672b95ea537"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -44,6 +44,22 @@
         },
         "discord.py": {
             "git": "https://github.com/Rapptz/discord.py.git"
+        },
+        "dj-database-url": {
+            "hashes": [
+                "sha256:4aeaeb1f573c74835b0686a2b46b85990571159ffc21aa57ecd4d1e1cb334163",
+                "sha256:851785365761ebe4994a921b433062309eb882fedd318e1b0fcecc607ed02da9"
+            ],
+            "index": "pypi",
+            "version": "==0.5.0"
+        },
+        "django": {
+            "hashes": [
+                "sha256:a32c22af23634e1d11425574dce756098e015a165be02e4690179889b207c7a8",
+                "sha256:d6393918da830530a9516bbbcbf7f1214c3d733738779f06b0f649f49cc698c3"
+            ],
+            "index": "pypi",
+            "version": "==2.1.5"
         },
         "flask": {
             "hashes": [
