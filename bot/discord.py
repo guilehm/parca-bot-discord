@@ -58,4 +58,5 @@ async def on_message(message):
         await client.send_message(channel, output)
 
 
-client.run(DISCORD_BOT_TOKEN)
+if __name__ == '__main__':
+    client.run(DISCORD_BOT_TOKEN)
