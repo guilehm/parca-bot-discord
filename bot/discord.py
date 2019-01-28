@@ -35,7 +35,11 @@ messages = json.loads(message_file.content)
 trainer = ListTrainer(bot)
 trainer.train(messages)
 
-games_list = ['Tibia', 'Fortnite', 'CS GO', 'Resident Evil 7', 'Fifa 2019', 'Divinity: Original Sin 2', 'PUBG']
+game_list = [
+    'Tibia', 'Fortnite', 'CS GO', 'Resident Evil 7', 'Fifa 2019', 'PUBG',
+    'o PC pela janela', 'Bosta no Ventilador', 'Lenha na fogueira', 'Meu tempo fora', 'Campo Minado'
+]
+
 
 @client.event
 async def on_ready():
@@ -52,7 +56,7 @@ async def on_member_join(member):
 @client.event
 async def change_status():
     await client.wait_until_ready()
-    msgs = cycle(games_list)
+    msgs = cycle(game_list)
 
     while not client.is_closed:
         current_status = next(msgs)
