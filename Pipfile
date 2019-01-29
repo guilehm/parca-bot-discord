@@ -15,6 +15,8 @@ pytz = "*"
 django = "*"
 dj-database-url = "*"
 requests = "*"
+dj-static = "*"
+static3 = "*"
 
 [requires]
 python_version = "3.6"

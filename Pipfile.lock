@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "acb1e1767473983145ba9846fb9552fe23c4f4646ca33a54d83ae41126af2232"
+            "sha256": "74859f4823cfaceb42d608fb5dc1d45fb2d214456ab13da1f5be595291b6bcb7"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -59,6 +59,13 @@
             ],
             "index": "pypi",
             "version": "==0.5.0"
+        },
+        "dj-static": {
+            "hashes": [
+                "sha256:032ec1c532617922e6e3e956d504a6fb1acce4fc1c7c94612d0fda21828ce8ef"
+            ],
+            "index": "pypi",
+            "version": "==0.0.6"
         },
         "django": {
             "hashes": [
@@ -236,6 +243,13 @@
                 "sha256:52a42dbf02d0562d6e90e7af59f177f1cc027e72833cc29c3a821eefa009c71d"
             ],
             "version": "==1.2.17"
+        },
+        "static3": {
+            "hashes": [
+                "sha256:674641c64bc75507af2eb20bef7e7e3593dca993dec6674be108fa15b42f47c8"
+            ],
+            "index": "pypi",
+            "version": "==0.7.0"
         },
         "urllib3": {
             "hashes": [
