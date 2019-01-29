@@ -25,13 +25,21 @@ if __name__ == '__main__':
     execute_from_command_line(sys.argv)
 
 client = commands.Bot(command_prefix='.')
-bot = ChatBot(**CHATTERBOT)
+bot = ChatBot(
+    **CHATTERBOT,
+    response_selection_method=get_random_response,
+    logic_adapters=[
+        {
+            "import_path": "chatterbot.logic.BestMatch",
+            "response_selection_method": "chatterbot.response_selection.get_random_response"
+        }
+    ]
+)
 
 MESSAGE_FILE_URL = os.getenv('MESSAGE_FILE_URL')
 
 message_file = requests.get(MESSAGE_FILE_URL)
 messages = json.loads(message_file.content)
-
 trainer = ListTrainer(bot)
 trainer.train(messages)
 
