@@ -68,20 +68,16 @@ async def change_status():
 async def on_message(message):
 
     channel = message.channel
+    content = message.content
 
-    if message.content.startswith('.conversar'):
+    if content.startswith('.conversar') or content[:3] == '.c ':
         raw_content = message.content.split()
         content = ' '.join(raw_content[1:])
         output = bot.get_response(content)
         await client.send_message(channel, output)
 
-    if message.content.startswith('.ping'):
+    if content.startswith('.ping'):
         await client.send_message(channel, 'pong! :D')
-
-    if message.content.startswith('.fala'):
-        msg = message.content
-        output = msg.strip('.fala ')
-        await client.send_message(channel, output)
 
 
 if __name__ == '__main__':
