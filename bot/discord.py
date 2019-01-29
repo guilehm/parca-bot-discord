@@ -8,6 +8,7 @@ import discord
 import requests
 from chatterbot import ChatBot
 from chatterbot.trainers import ListTrainer
+from chatterbot.response_selection import get_random_response
 from discord.ext import commands
 
 from parcaBot.settings import CHATTERBOT, DISCORD_BOT_TOKEN
@@ -44,8 +45,8 @@ trainer = ListTrainer(bot)
 trainer.train(messages)
 
 game_list = [
-    'Tibia', 'Fortnite', 'CS GO', 'Resident Evil 7', 'Fifa 2019', 'PUBG',
-    'o PC pela janela', 'Bosta no Ventilador', 'Lenha na fogueira', 'Meu tempo fora', 'Campo Minado'
+    'Tibia', 'Bosta no Ventilador', 'Fortnite', 'CS GO', 'Fifa 2019', 'PUBG', 'Meu cachorro na piscina',
+    'o PC pela janela', 'Lenha na fogueira', 'Meu tempo fora', 'Campo Minado', 'Minha irmã no chão',
 ]
 
 
