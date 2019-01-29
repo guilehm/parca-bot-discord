@@ -27,7 +27,7 @@ SECRET_KEY = 'o%3^f$(ogveeg_$svq1_p(!ye8d5ij8&@ej!kq23e5@#wg6m8e'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['parca-bot.herokuapp.com']
 
 
 # Application definition
