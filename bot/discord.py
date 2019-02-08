@@ -1,13 +1,10 @@
 import asyncio
-import json
 import os
 import sys
 from itertools import cycle
 
 import discord
-import requests
 from chatterbot import ChatBot
-from chatterbot.trainers import ListTrainer
 from chatterbot.response_selection import get_random_response
 from discord.ext import commands
 
@@ -36,13 +33,6 @@ bot = ChatBot(
         }
     ]
 )
-
-MESSAGE_FILE_URL = os.getenv('MESSAGE_FILE_URL')
-
-message_file = requests.get(MESSAGE_FILE_URL)
-messages = json.loads(message_file.content)
-trainer = ListTrainer(bot)
-trainer.train(messages)
 
 game_list = [
     'Tibia', 'Bosta no Ventilador', 'Fortnite', 'CS GO', 'Fifa 2019', 'PUBG', 'Meu cachorro na piscina',
@@ -75,7 +65,6 @@ async def change_status():
 
 @client.event
 async def on_message(message):
-
     channel = message.channel
     content = message.content
 
