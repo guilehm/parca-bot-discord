@@ -32,11 +32,10 @@
         },
         "chatterbot": {
             "hashes": [
-                "sha256:13f77f8e9cd305432ff20da0a21a4437a0d7b40030750282b3b1e48e80cd14ea",
-                "sha256:36b47070995554ea3ee7f39f23814b3b5b1caf49c33890d17c9cae19b32573c7"
+                "sha256:ef4ce8fc39cc8f9b54f506be24b8828a5dfc2f27ac506eaaa32c3c66ef8385dd"
             ],
             "index": "pypi",
-            "version": "==1.0.1"
+            "version": "==1.0.4"
         },
         "chatterbot-corpus": {
             "hashes": [
@@ -69,11 +68,11 @@
         },
         "django": {
             "hashes": [
-                "sha256:a32c22af23634e1d11425574dce756098e015a165be02e4690179889b207c7a8",
-                "sha256:d6393918da830530a9516bbbcbf7f1214c3d733738779f06b0f649f49cc698c3"
+                "sha256:275bec66fd2588dd517ada59b8bfb23d4a9abc5a362349139ddda3c7ff6f5ade",
+                "sha256:939652e9d34d7d53d74d5d8ef82a19e5f8bb2de75618f7e5360691b6e9667963"
             ],
             "index": "pypi",
-            "version": "==2.1.5"
+            "version": "==2.1.7"
         },
         "gunicorn": {
             "hashes": [
@@ -240,9 +239,9 @@
         },
         "sqlalchemy": {
             "hashes": [
-                "sha256:52a42dbf02d0562d6e90e7af59f177f1cc027e72833cc29c3a821eefa009c71d"
+                "sha256:8027fa183f5be466030617a497b2d64e0e16c8d615e5a34bdf9fab6f66bf4723"
             ],
-            "version": "==1.2.17"
+            "version": "==1.2.18"
         },
         "static3": {
             "hashes": [
@@ -262,12 +261,10 @@
     "develop": {
         "isort": {
             "hashes": [
-                "sha256:1153601da39a25b14ddc54955dbbacbb6b2d19135386699e2ad58517953b34af",
-                "sha256:b9c40e9750f3d77e6e4d441d8b0266cf555e7cdabdcff33c4fd06366ca761ef8",
-                "sha256:ec9ef8f4a9bc6f71eec99e1806bfa2de401650d996c59330782b89a5555c1497"
+                "sha256:f19b23b22fb5a919a081bc31aabcc0991614c244d9215267e11abf2ca7b684ce"
             ],
             "index": "pypi",
-            "version": "==4.3.4"
+            "version": "==4.3.9"
         }
     }
 }
