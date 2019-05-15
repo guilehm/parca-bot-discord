@@ -7,7 +7,7 @@ name = "pypi"
 isort = "*"
 
 [packages]
-psycopg2-binary = "*"
+"psycopg2" = "*"
 gunicorn = "*"
 "discord.py" = {git = "https://github.com/Rapptz/discord.py.git"}
 chatterbot = "*"
