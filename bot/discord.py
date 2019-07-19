@@ -1,14 +1,19 @@
 import asyncio
+import logging
 import os
 import sys
 from itertools import cycle
 
 import discord
+import requests
 from chatterbot import ChatBot
 from chatterbot.response_selection import get_random_response
 from discord.ext import commands
 
+from bot.models import WakeUp
 from parcaBot.settings import CHATTERBOT, DISCORD_BOT_TOKEN
+
+logger = logging.getLogger(__name__)
 
 if __name__ == '__main__':
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'parcaBot.settings')
@@ -76,6 +81,17 @@ async def on_message(message):
 
     if content.startswith('.ping'):
         await client.send_message(channel, 'pong! :D')
+
+    if content.startswith('.acordar'):
+        r = requests.get('https://gui-dark-souls.herokuapp.com/')
+        try:
+            WakeUp.objects.create(data=r.json())
+            output = 'Tentando acordar o Dark BOT'
+        except Exception as e:
+            output = f'Não consegui acordar o Dark BOT \n {e}'
+            logger.exception(e, exc_info=True)
+
+        await client.send_message(channel, output)
 
 
 if __name__ == '__main__':
