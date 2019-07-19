@@ -10,7 +10,6 @@ from chatterbot import ChatBot
 from chatterbot.response_selection import get_random_response
 from discord.ext import commands
 
-from bot.models import WakeUp
 from parcaBot.settings import CHATTERBOT, DISCORD_BOT_TOKEN
 
 logger = logging.getLogger(__name__)
@@ -19,6 +18,7 @@ if __name__ == '__main__':
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'parcaBot.settings')
     try:
         from django.core.management import execute_from_command_line
+        from bot.models import WakeUp
     except ImportError as exc:
         raise ImportError(
             "Couldn't import Django. Are you sure it's installed and "
