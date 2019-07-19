@@ -84,9 +84,11 @@ async def on_message(message):
 
     if content.startswith('.acordar'):
         r = requests.get('https://gui-dark-souls.herokuapp.com/')
+        wake_message = 'Tentando acordar o Dark BOT'
+        await client.send_message(channel, wake_message)
         try:
             WakeUp.objects.create(data=r.json())
-            output = 'Tentando acordar o Dark BOT'
+            output = 'Acho que consegui acordá-lo'
         except Exception as e:
             output = f'Não consegui acordar o Dark BOT \n {e}'
             logger.exception(e, exc_info=True)
