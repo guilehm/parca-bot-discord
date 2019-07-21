@@ -83,9 +83,9 @@ async def on_message(message):
         await client.send_message(channel, 'pong! :D')
 
     if content.startswith('.acordar'):
-        r = requests.get('https://gui-dark-souls.herokuapp.com/')
         wake_message = 'Tentando acordar o Dark BOT'
         await client.send_message(channel, wake_message)
+        r = requests.get('https://gui-dark-souls.herokuapp.com/')
         try:
             WakeUp.objects.create(data=r.json())
             output = 'Acho que consegui acordá-lo'
