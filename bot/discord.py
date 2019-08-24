@@ -10,7 +10,7 @@ from chatterbot import ChatBot
 from chatterbot.response_selection import get_random_response
 from discord.ext import commands
 
-from parcaBot.settings import CHATTERBOT, DISCORD_BOT_TOKEN
+from parcaBot.settings import CHATTERBOT, DISCORD_BOT_TOKEN, DARK_SOULS_ENDPOINT
 
 logger = logging.getLogger(__name__)
 
@@ -85,7 +85,7 @@ async def on_message(message):
     if content.startswith('.acordar'):
         wake_message = 'Tentando acordar o Dark BOT'
         await client.send_message(channel, wake_message)
-        r = requests.get('https://gui-dark-souls.herokuapp.com/')
+        r = requests.get(DARK_SOULS_ENDPOINT)
         try:
             WakeUp.objects.create(data=r.json())
             output = 'Acho que consegui acordá-lo'
