@@ -85,6 +85,7 @@ DATABASES = {
 
 DISCORD_TOKEN = os.getenv('DISCORD_TOKEN')
 DISCORD_BOT_TOKEN = os.getenv('DISCORD_BOT_TOKEN')
+DARK_SOULS_ENDPOINT = os.getenv('DARK_SOULS_ENDPOINT')
 
 CHATTERBOT = {
     'name': 'ParçaBot',
