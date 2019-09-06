@@ -62,21 +62,29 @@ async def on_ready():
 
 
 @client.event
-async def on_member_join(member):
-    server = member.server
-    default_channel = server.default_channel
-    await client.send_message(default_channel, 'Olá {}, seja bem-vindo!'.format(member.mention))
+async def change_status():
+    await client.wait_until_ready()
+    game = cycle(game_list)
+    while not client.is_closed():
+        current_status = next(game)
+        await client.change_presence(activity=discord.Game(current_status))
+        await asyncio.sleep(120)
 
 
 @client.event
-async def change_status():
-    await client.wait_until_ready()
-    msgs = cycle(game_list)
-
-    while not client.is_closed:
-        current_status = next(msgs)
-        await client.change_presence(game=discord.Game(name=current_status))
-        await asyncio.sleep(120)
+async def send_random_messages():
+    if RANDOM_MESSAGES:
+        await client.wait_until_ready()
+        statements = Statement.objects.annotate(
+            text_len=Length('text')).filter(
+            text_len__gt=int(RANDOM_MESSAGES_LENGTH),
+        )
+        while not client.is_closed():
+            guild = client.get_guild(RANDOM_MESSAGES_GUILD)
+            channel = guild.get_channel(RANDOM_MESSAGES_CHANNEL)
+            for statement in statements:
+                await channel.send(statement.text)
+                await asyncio.sleep(int(RANDOM_MESSAGES_SLEEP_SECONDS))
 
 
 @client.event
