@@ -9,7 +9,6 @@ isort = "*"
 [packages]
 "psycopg2-binary" = "*"
 gunicorn = "*"
-"discord.py" = {git = "https://github.com/Rapptz/discord.py.git"}
 chatterbot = "*"
 pytz = "*"
 django = "*"
@@ -17,7 +16,7 @@ dj-database-url = "*"
 requests = "*"
 dj-static = "*"
 static3 = "*"
-chatterbot-corpus = "*"
+discord = "*"
 
 [requires]
 python_version = "3.6"
