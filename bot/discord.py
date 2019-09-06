@@ -1,17 +1,17 @@
 import asyncio
 import logging
-import os
 import sys
 from itertools import cycle
 
 import discord
+import os
 import requests
 from chatterbot import ChatBot
 from chatterbot.response_selection import get_random_response
 from discord.ext import commands
+from django.db.models.functions import Length
 
 from parcaBot.settings import CHATTERBOT, DISCORD_BOT_TOKEN, DARK_SOULS_ENDPOINT
-from django.db.models.functions import Length
 
 logger = logging.getLogger(__name__)
 
