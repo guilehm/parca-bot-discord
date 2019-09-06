@@ -102,7 +102,7 @@ async def on_message(message):
 
     if content.startswith('.acordar'):
         wake_message = 'Tentando acordar o Dark BOT'
-        await client.send_message(channel, wake_message)
+        await channel.send(wake_message)
         r = requests.get(DARK_SOULS_ENDPOINT)
         try:
             WakeUp.objects.create(data=r.json())
