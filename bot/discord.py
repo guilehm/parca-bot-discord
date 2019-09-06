@@ -88,14 +88,14 @@ async def on_message(message):
         raw_content = message.content.split()
         content = ' '.join(raw_content[1:])
         output = bot.get_response(content)
-        await client.send_message(channel, output)
+        await channel.send(output)
 
     if content.startswith('.ping'):
-        await client.send_message(channel, 'pong! :D')
+        await channel.send('pong! :D')
 
     if content.startswith('.acordar'):
         wake_message = 'Tentando acordar o Dark BOT'
-        await client.send_message(channel, wake_message)
+        await channel.send(wake_message)
         r = requests.get('https://gui-dark-souls.herokuapp.com/')
         try:
             WakeUp.objects.create(data=r.json())
@@ -104,9 +104,10 @@ async def on_message(message):
             output = f'Não consegui acordar o Dark BOT \n {e}'
             logger.exception(e, exc_info=True)
 
-        await client.send_message(channel, output)
+        await channel.send(output)
 
 
 if __name__ == '__main__':
     client.loop.create_task(change_status())
+    client.loop.create_task(send_random_messages())
     client.run(DISCORD_BOT_TOKEN)
