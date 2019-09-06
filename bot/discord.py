@@ -10,6 +10,8 @@ from chatterbot import ChatBot
 from chatterbot.response_selection import get_random_response
 from discord.ext import commands
 
+from django.db.models.functions import Length
+
 from parcaBot.settings import CHATTERBOT, DISCORD_BOT_TOKEN
 
 logger = logging.getLogger(__name__)
@@ -27,6 +29,15 @@ if __name__ == '__main__':
     execute_from_command_line(sys.argv)
 
 from bot.models import WakeUp
+from chatterbot.ext.django_chatterbot.models import Statement
+
+
+RANDOM_MESSAGES = os.getenv('RANDOM_MESSAGES', 1)
+RANDOM_MESSAGES_LENGTH = os.getenv('RANDOM_MESSAGES_LENGTH', 50)
+RANDOM_MESSAGES_GUILD = os.getenv('RANDOM_MESSAGES_GUILD', 538866016826949653)
+RANDOM_MESSAGES_CHANNEL = os.getenv('RANDOM_MESSAGES_CHANNEL', 578037605174738945)
+RANDOM_MESSAGES_SLEEP_SECONDS = os.getenv('RANDOM_MESSAGES_SLEEP_SECONDS', 60000)
+
 client = commands.Bot(command_prefix='.')
 bot = ChatBot(
     **CHATTERBOT,
