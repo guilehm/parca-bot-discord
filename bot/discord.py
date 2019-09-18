@@ -57,7 +57,7 @@ game_list = [
 STATEMENTS = Statement.objects.annotate(
     text_len=Length('text')).filter(
     text_len__gt=int(RANDOM_MESSAGES_LENGTH),
-)
+).order_by('?')
 
 
 @client.event
