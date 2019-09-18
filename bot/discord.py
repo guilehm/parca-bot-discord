@@ -54,6 +54,11 @@ game_list = [
     'o PC pela janela', 'Lenha na fogueira', 'Meu tempo fora', 'Campo Minado', 'Minha irmã no chão',
 ]
 
+STATEMENTS = Statement.objects.annotate(
+    text_len=Length('text')).filter(
+    text_len__gt=int(RANDOM_MESSAGES_LENGTH),
+)
+
 
 @client.event
 async def on_ready():
@@ -74,16 +79,12 @@ async def change_status():
 async def send_random_messages():
     if RANDOM_MESSAGES:
         await client.wait_until_ready()
-        statements = Statement.objects.annotate(
-            text_len=Length('text')).filter(
-            text_len__gt=int(RANDOM_MESSAGES_LENGTH),
-        )
+        guild = client.get_guild(RANDOM_MESSAGES_GUILD)
+        channel = guild.get_channel(RANDOM_MESSAGES_CHANNEL)
+        statement = cycle(STATEMENTS)
         while not client.is_closed():
-            guild = client.get_guild(RANDOM_MESSAGES_GUILD)
-            channel = guild.get_channel(RANDOM_MESSAGES_CHANNEL)
-            for statement in statements:
-                await channel.send(statement.text)
-                await asyncio.sleep(int(RANDOM_MESSAGES_SLEEP_SECONDS))
+            await channel.send(next(statement).text)
+            await asyncio.sleep(int(RANDOM_MESSAGES_SLEEP_SECONDS))
 
 
 @client.event
