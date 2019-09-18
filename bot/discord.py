@@ -54,6 +54,11 @@ game_list = [
     'o PC pela janela', 'Lenha na fogueira', 'Meu tempo fora', 'Campo Minado', 'Minha irmã no chão',
 ]
 
+STATEMENTS = Statement.objects.annotate(
+    text_len=Length('text')).filter(
+    text_len__gt=int(RANDOM_MESSAGES_LENGTH),
+)
+
 
 @client.event
 async def on_ready():
