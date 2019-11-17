@@ -101,19 +101,6 @@ async def on_message(message):
     if content.startswith('.ping'):
         await channel.send('pong! :D')
 
-    if content.startswith('.acordar'):
-        wake_message = 'Tentando acordar o Dark BOT'
-        await channel.send(wake_message)
-        r = requests.get(DARK_SOULS_ENDPOINT)
-        try:
-            WakeUp.objects.create(data=r.json())
-            output = 'Acho que consegui acordá-lo'
-        except Exception as e:
-            output = f'Não consegui acordar o Dark BOT \n {e}'
-            logger.exception(e, exc_info=True)
-
-        await channel.send(output)
-
 
 if __name__ == '__main__':
     client.loop.create_task(change_status())
