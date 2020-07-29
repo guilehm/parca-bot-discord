@@ -16,7 +16,7 @@ dj-database-url = "*"
 requests = "*"
 dj-static = "*"
 static3 = "*"
-discord = "*"
+discord-py = "*"
 
 [requires]
 python_version = "3.6"
